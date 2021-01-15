@@ -1,1 +1,2 @@
-# gallery-ko
+# gallery
+Gallery documentation
