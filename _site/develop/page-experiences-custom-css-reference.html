@@ -1,0 +1,1373 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>페이지 내 경험 사용자 지정 CSS 참조</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><span class="product-logo" style="font-family:'Balto Web','Public Sans';font-size:2em;font-weight:bold;">브라이트코브 갤러리<sup>™</sup></span></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">기타 브라이트코브 문서</option>
+      
+        
+          <option value="https://support.brightcove.com">설명서 홈</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">홈</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/develop/">개발</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">페이지 내 경험 사용자 지정 CSS 참조</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">홈</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/get-started/index.html">시작하기 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/get-started/step-step-creating-and-publishing-portal-experience.html">포털 환경 만들기</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/step-step-creating-and-publishing-page-experience.html">페이지 내 환경 만들기</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/creating-and-managing-gallery-experiences.html">경험 생성 및 관리</a></li>
+                  
+                
+                  
+                    <li><a href="/training/gallery-training-videos.html">갤러리 교육 비디오</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/getting-started-brightcove-gallery.html">브라이트코브 갤러리 시작하기</a></li>
+                  
+                
+                  
+                    <li><a href="/get-started/overview-gallery-experiences.html">갤러리 경험 개요</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-gallery.html">교육: 갤러리 소개</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-building-portal-experiences-using-gallery.html">교육: 포털 경험 구축</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-building-page-experiences-using-gallery.html">교육: 페이지 내 경험 구축</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/experiences/index.html">체험<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/experiences/portal/index.html">포털<strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/experiences/portal/adding-video-cloud-videos-portal-experience.html">비디오 클라우드 비디오 추가</a></li>
+                        
+                        <li><a href="/experiences/portal/adding-videos-portal-experience.html">비디오 추가</a></li>
+                        
+                        <li><a href="/experiences/portal/adding-youtube-videos-portal-experience.html">유튜브 동영상 추가</a></li>
+                        
+                        <li><a href="/experiences/portal/assigning-custom-domain-portal-experience.html">사용자 지정 도메인 할당</a></li>
+                        
+                        <li><a href="/experiences/portal/changing-player-layout-portal-experience.html">플레이어 레이아웃 변경하기</a></li>
+                        
+                        <li><a href="/experiences/portal/configuring-calls-action-portal-experience.html">영업 활용 방안 구성</a></li>
+                        
+                        <li><a href="/experiences/portal/configuring-search-engine-optimization-settings-portal-experience.html">SEO 설정 구성</a></li>
+                        
+                        <li><a href="/experiences/portal/configuring-details-portal-experience.html">경험에 대한 세부 정보 구성</a></li>
+                        
+                        <li><a href="/experiences/portal/configuring-third-party-tracking-portal-experience.html">타사 추적 구성</a></li>
+                        
+                        <li><a href="/experiences/portal/controlling-access-portal-experience.html">액세스 제어</a></li>
+                        
+                        <li><a href="/experiences/portal/overview-creating-editing-and-publishing-portal-experiences.html">포털 환경 만들기, 편집 및 게시</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-appearance-and-behavior-portal-experience.html">모양 및 동작 사용자 정의</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-catalogue-template-settings.html">카탈로그 템플릿 설정 사용자 정의</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-chronicle-template-settings.html">크로니클 템플릿 설정 사용자 정의</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-content-portal-experience-pages.html">포털 페이지의 콘텐츠 사용자 지정</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-marquee-template-settings.html">선택 윤곽 템플릿 설정 사용자 정의</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-player-and-lead-form-settings-portal-experience.html">플레이어 및 리드 양식 설정 사용자 지정</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-site-configuration-portal-experience.html">사이트 구성 사용자 정의</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-site-features-portal-experience.html">사이트 기능 사용자 정의</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-social-settings-portal-experience.html">소셜 설정 사용자 정의</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-style-portal-experience.html">스타일 사용자 정의</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-video-and-playback-settings-portal-experience.html">비디오 및 재생 설정 사용자 정의</a></li>
+                        
+                        <li><a href="/experiences/portal/customizing-video-settings-portal-experience.html">비디오 설정 사용자 정의</a></li>
+                        
+                        <li><a href="/experiences/portal/downloading-videos-portal-experience.html">비디오 다운로드</a></li>
+                        
+                        <li><a href="/experiences/portal/exporting-gallery-lead-data.html">갤러리 잠재 고객 데이터 익스포트</a></li>
+                        
+                        <li><a href="/experiences/portal/indexing-gallery-portal-experience.html">포털 환경 인덱싱</a></li>
+                        
+                        <li><a href="/experiences/portal/overview-gallery-portal-templates.html">갤러리 포털 템플릿 개요</a></li>
+                        
+                        <li><a href="/experiences/portal/previewing-and-publishing-portal-experience.html">미리 보기 및 게시</a></li>
+                        
+                        <li><a href="/experiences/portal/updating-gallery-templates.html">갤러리 템플릿 업데이트</a></li>
+                        
+                        <li><a href="/experiences/portal/using-lead-form-portal-experience.html">가망 고객 화면 사용</a></li>
+                        
+                        <li><a href="/experiences/portal/using-custom-fonts-portal-experience.html">사용자 정의 글꼴 사용</a></li>
+                        
+                        <li><a href="/experiences/portal/using-site-editor-customize-portal-experience.html">사이트 편집기를 사용하여 환경 사용자 지정</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/experiences/inpage/index.html">페이지 내<strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/experiences/inpage/adding-components-page-experience.html">구성 요소 추가</a></li>
+                        
+                        <li><a href="/experiences/inpage/adding-interactions-page-experience.html">상호 작용 추가</a></li>
+                        
+                        <li><a href="/experiences/inpage/adding-videos-page-experience.html">비디오 추가</a></li>
+                        
+                        <li><a href="/experiences/inpage/configuring-companion-components-page-experience.html">컴패니언 컴포넌트 구성</a></li>
+                        
+                        <li><a href="/experiences/inpage/configuring-details-page-experience.html">경험에 대한 세부 정보 구성</a></li>
+                        
+                        <li><a href="/experiences/inpage/configuring-settings-page-experience.html">경험에 대한 설정 구성</a></li>
+                        
+                        <li><a href="/experiences/inpage/configuring-video-downloads-page-experience.html">비디오 다운로드 구성</a></li>
+                        
+                        <li><a href="/experiences/inpage/creating-custom-themes-page-experiences.html">사용자 정의 테마 만들기</a></li>
+                        
+                        <li><a href="/experiences/inpage/customizing-page-experience.html">페이지 내 환경 사용자 지정</a></li>
+                        
+                        <li><a href="/experiences/inpage/customizing-style-page-experience.html">스타일 사용자 정의</a></li>
+                        
+                        <li><a href="/experiences/inpage/overview-gallery-page-experience-templates.html">페이지 내 환경 템플릿 개요</a></li>
+                        
+                        <li><a href="/experiences/inpage/overview-creating-editing-and-publishing-page-experiences.html">개요: 페이지 내 경험 만들기 및 게시</a></li>
+                        
+                        <li><a href="/experiences/inpage/previewing-and-publishing-page-experience.html">미리 보기 및 게시</a></li>
+                        
+                        <li><a href="/experiences/inpage/reviewing-page-experience-analytics.html">분석 검토</a></li>
+                        
+                        <li><a href="/experiences/inpage/reviewing-page-experience-calls-action-analytics.html">영업 활용 방안 분석 검토</a></li>
+                        
+                        <li><a href="/experiences/inpage/reviewing-page-experience-analytics-dashboard.html">분석 대시보드 검토</a></li>
+                        
+                        <li><a href="/experiences/inpage/reviewing-page-experience-video-analytics.html">비디오 분석 검토</a></li>
+                        
+                        <li><a href="/experiences/portal/updating-gallery-templates.html">갤러리 템플릿 업데이트</a></li>
+                        
+                        <li><a href="/experiences/inpage/using-dynamic-video-overrides-page-experience.html">동적 비디오 재정의 사용</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/experiences/live/index.html">라이브 이벤트<strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/experiences/live/adding-pigeonhole-live-event-page-experience.html">라이브 인페이지에 비둘기 구멍 추가하기</a></li>
+                        
+                        <li><a href="/experiences/live/adding-pigeonhole-live-event-portal-experience.html">라이브 포털에 비둘기 추가</a></li>
+                        
+                        <li><a href="/experiences/portal/assigning-custom-domain-portal-experience.html">사용자 지정 도메인 할당</a></li>
+                        
+                        <li><a href="/experiences/portal/controlling-access-portal-experience.html">액세스 제어</a></li>
+                        
+                        <li><a href="/experiences/live/creating-live-event-page-experience.html">라이브 이벤트 페이지 환경 만들기</a></li>
+                        
+                        <li><a href="/experiences/live/creating-live-event-portal-experience.html">라이브 이벤트 포털 환경 만들기</a></li>
+                        
+                        <li><a href="/experiences/live/creating-live-event-state-portal-event-experience.html">라이브 이벤트 상태 만들기</a></li>
+                        
+                        <li><a href="/experiences/live/creating-post-event-state-portal-event-experience.html">사후 이벤트 상태 만들기</a></li>
+                        
+                        <li><a href="/experiences/live/creating-pre-event-state-portal-event-experience.html">사전 이벤트 상태 만들기</a></li>
+                        
+                        <li><a href="/experiences/live/customizing-live-event-portal-settings.html">라이브 이벤트 포털 설정 사용자 지정</a></li>
+                        
+                        <li><a href="/experiences/portal/previewing-and-publishing-portal-experience.html">미리 보기 및 게시</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/experiences/landing/index.html">랜딩 페이지<strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/experiences/portal/assigning-custom-domain-portal-experience.html">사용자 지정 도메인 할당</a></li>
+                        
+                        <li><a href="/experiences/landing/creating-landing-page-experience.html">랜딩 페이지 경험 만들기</a></li>
+                        
+                        <li><a href="/experiences/portal/exporting-gallery-lead-data.html">갤러리 잠재 고객 데이터 익스포트</a></li>
+                        
+                        <li><a href="/experiences/portal/previewing-and-publishing-portal-experience.html">미리 보기 및 게시</a></li>
+                        
+                        <li><a href="/experiences/portal/using-lead-form-portal-experience.html">가망 고객 화면 사용</a></li>
+                        
+                        <li><a href="/experiences/portal/using-site-editor-customize-portal-experience.html">사이트 편집기를 사용하여 환경 사용자 지정</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">일반<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/gallery-system-requirements.html">갤러리 시스템 요구 사항</a></li>
+                  
+                
+                  
+                    <li><a href="/general/troubleshooting-brightcove-gallery-issues.html">브라이트코브 갤러리 문제 해결</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-gallery-cookies.html">브라이트코브 갤러리 쿠키</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/settings/index.html">갤러리 설정<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/settings/configuring-gallery-settings.html">갤러리 설정 구성</a></li>
+                  
+                
+                  
+                    <li><a href="/settings/configuring-youtube-settings.html">유튜브 설정 구성</a></li>
+                  
+                
+                  
+                    <li><a href="/settings/configuring-access-control-profiles.html">액세스 제어 프로파일 구성</a></li>
+                  
+                
+                  
+                    <li><a href="/settings/configuring-custom-domains-and-ssl.html">사용자 지정 도메인 및 SSL 구성</a></li>
+                  
+                
+                  
+                    <li><a href="/settings/securing-portal-experience-auth0.html">Auth0으로 포털 환경 보안 설정</a></li>
+                  
+                
+                  
+                    <li><a href="/settings/securing-portal-experience-okta.html">Okta로 포털 경험 확보</a></li>
+                  
+                
+                  
+                    <li><a href="/settings/securing-portal-experience-ssl.html">SSL을 사용하여 포털 환경 보안</a></li>
+                  
+                
+                  
+                    <li><a href="/settings/configuring-single-sign-active-directory-federation-services.html">ADFS를 사용하여 단일 사인온 구성</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/develop/index.html">개발자 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/develop/page-experience-code-snippets.html">페이지 내 경험 코드 조각</a></li>
+                  
+                
+                  
+                    <li><a href="/develop/page-experiences-custom-css-reference.html">페이지 내 경험 사용자 지정 CSS 참조</a></li>
+                  
+                
+                  
+                    <li><a href="/develop/embedding-brightcove-page-experiences-cms.html">CMS에 페이지 내 경험 포함</a></li>
+                  
+                
+                  
+                    <li><a href="/develop/overview-page-experience-api.html">개요: 페이지 내 경험 API</a></li>
+                  
+                
+                  
+                    <li><a href="/develop/overview-page-experience-client-api.html">개요: 페이지 내 경험 클라이언트 API</a></li>
+                  
+                
+                  
+                    <li><a href="/develop/page-experience-api-error-reference.html">페이지 내 환경 API 오류 참조</a></li>
+                  
+                
+                  
+                    <li><a href="/develop/page-experience-client-api-sample.html">페이지 내 환경 클라이언트 API 샘플</a></li>
+                  
+                
+                  
+                    <li><a href="/develop/quick-start-page-experience-platform-rest-api.html">빠른 시작: 페이지 내 경험 플랫폼 (REST) API</a></li>
+                  
+                
+                  
+                    <li><a href="/develop/reference.html">페이지 내 경험 플랫폼 API 참조</a></li>
+                  
+                
+                  
+                    <li><a href="https://docs.brightcove.com/in-page-exerience-client-api/ClientApi.html">페이지 내 경험 클라이언트 API 참조</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/training/index.html">교육 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/gallery-training-videos.html">갤러리 교육 비디오</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-introduction-gallery.html">교육: 갤러리 소개</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-building-portal-experiences-using-gallery.html">교육: 포털 경험 구축</a></li>
+                  
+                
+                  
+                    <li><a href="/training/training-demand-building-page-experiences-using-gallery.html">교육: 페이지 내 경험 구축</a></li>
+                  
+                
+                  
+                    <li><a href="/training/brightcove-university.html">브라이트코브 대학교 교육 과정</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/release-notes/index.html">릴리즈 노트 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/release-notes/gallery-release-notes.html">갤러리 릴리스 정보</a></li>
+                  
+                
+                  
+                    <li><a href="/release-notes/gallery-template-release-notes.html">갤러리 템플릿 릴리스 정보</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">페이지 내용</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<article class="bcls-article">
+  <h1>페이지 내 경험 사용자 지정 CSS 참조</h1>
+  <summary>이 항목에서는 페이지 내 경험을 만들 때 사용되는 CSS 클래스에 대해 간략하게 설명합니다. 이 정보는 CSS를 사용하여 경험의 스타일을 더욱 높일 수 있도록 제공됩니다.</summary>
+  <section class="bcls-section">
+    <h2 id="styledcomponents">스타일이 지정된 구성요소</h2>
+    <p>이러한 CSS 클래스는 UI를 통해 스타일이 지정된 항목에 적용됩니다. &nbsp;이러한 스타일은 이러한 클래스를 사용하여 사용자 정의 CSS로 재정의 할 수 있습니다. &nbsp;이러한 클래스를 사용하여 UI 스타일을 사용자 정의 HTML에 적용 할 수도 있습니다. &nbsp;이러한 클래스는 안정적이며 템플릿 버전간에 변경되어서는 안됩니다.</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소 - 스타일 - 전역</td>
+          <td>경험을 위한 글로벌 스타일링</td>
+        </tr>
+        <tr>
+          <td>e - 구성 요소 - 스타일 앵커</td>
+          <td>일반 링크 스타일 지정</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 스타일 탐색</td>
+          <td>탐색 링크 스타일 지정 (뒤로 버튼, 공유 버튼 등)</td>
+        </tr>
+        <tr>
+          <td>EE 구성 요소-스타일-비디오 정보</td>
+          <td>비디오 정보 상자 스타일 지정 (오버레이 아님)</td>
+        </tr>
+        <tr>
+          <td>EE 구성 요소 - 스타일 - 비디오 제목</td>
+          <td>비디오 제목 스타일 지정 (오버레이 아님)</td>
+        </tr>
+        <tr>
+          <td>EE 구성 요소-스타일-비디오 설명</td>
+          <td>비디오 설명 스타일 지정 (오버레이 아님)</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-스타일 오버레이</td>
+          <td>오버레이 비디오 정보 상자 스타일</td>
+        </tr>
+        <tr>
+          <td>EE 구성요소 - 스타일-중첩 제목</td>
+          <td>오버레이 비디오 제목 스타일</td>
+        </tr>
+        <tr>
+          <td>EE-구성요소-스타일-중첩 설명</td>
+          <td>오버레이 비디오 설명 스타일 지정</td>
+        </tr>
+        <tr>
+          <td>EE 구성 요소 - 스타일 - 오버레이 배너</td>
+          <td>오버레이 배너/표시기 스타일 (감시된 표시기)</td>
+        </tr>
+        <tr>
+          <td>EE 구성 요소 - 스타일 - 재생 버튼</td>
+          <td>재생 버튼 기본 스타일 지정 (보다 복잡한 스타일링은 재생 버튼 구성 요소 참조)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="basecomponents">기준 구성요소</h2>
+    <p>이들은 사용자 정의 CSS를 사용하여 스타일을 지정할 수있는 기본 구성 요소입니다. &nbsp;구성 요소 클래스는 안정적이며 템플릿 버전간에 변경되어서는 안됩니다. &nbsp;내부 클래스는 상대적으로 안정적이며 템플릿 버전간에 변경되지 않을 가능성이 큽니다.</p>
+    <h3>재생 버튼</h3>
+    <p>재생 버튼은 모든 비디오 썸네일에 나타납니다.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-play-button.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-재생 버튼</td>
+          <td>재생 버튼 구성 요소</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 재생 버튼 - svg</td>
+          <td>SVG 컨테이너</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-재생 버튼 그룹</td>
+          <td>SVG 내부 그룹</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-재생 버튼 버튼</td>
+          <td>재생 버튼 SVG 그룹</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-재생 버튼 프레임</td>
+          <td>재생 버튼 원형 프레임</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-재생 버튼-아이콘</td>
+          <td>재생 단추 아이콘</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 재생 버튼 카운트 다운</td>
+          <td>카운트다운 SVG 그룹</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 재생 - 단추 - 일시 중지</td>
+          <td>카운트다운 일시 중지 아이콘</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-재생 버튼-텍스트</td>
+          <td>카운트다운 텍스트</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-재생 버튼 트랙</td>
+          <td>카운트다운 트랙</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-재생 버튼 러너</td>
+          <td>카운트다운 진행률</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>화살</h3>
+    <p>회전 목마 템플릿의 화살표 (단일 및 전체 재단 프레젠테이션 옵션의 경우)</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-carousel-arrows.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>E-구성 요소-화살표</td>
+          <td>화살표 구성요소 (배경 포함)</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 화살표 - 내부</td>
+          <td>화살</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>다음</h3>
+    <p>플레이어 설정에서 다음<strong>비디오로 자동 진행을 활성화하면 큰 축소판 위에 다음</strong>표시기가 표시됩니다.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-up-next.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>구성 요소-다음 구성 요소</td>
+          <td>다음 구성요소 위로</td>
+        </tr>
+        <tr>
+          <td>구성 요소-업-다음 축소판</td>
+          <td>다음 비디오 축소판</td>
+        </tr>
+        <tr>
+          <td>구성 요소-업 - 다음 텍스트</td>
+          <td>다음 텍스트 위로 올리기 (카운트다운+비디오 이름)</td>
+        </tr>
+        <tr>
+          <td>구성 요소 업 - 다음 텍스트 카운트 다운</td>
+          <td>카운트다운 텍스트</td>
+        </tr>
+        <tr>
+          <td>구성 요소 - 다음 - 닫기</td>
+          <td>닫기 버튼</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>시청한 비디오 표시기</h3>
+    <p>[비디오] 설정에서 옵션을 활성화하면 [감시된 표시기] 가 표시됩니다.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-watched.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소 감시 비디오 배너</td>
+          <td>시청한 비디오 표시기</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="videocomponents">비디오 구성 요소</h2>
+    <p>개별 비디오와 관련된 구성 요소. 이러한 클래스는 안정적이며 템플릿 버전간에 변경되어서는 안됩니다.</p>
+    <h3>플레이어</h3>
+    <p>브라이트코브 플레이어를 위한 컨테이너입니다.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-player.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-플레이어</td>
+          <td>플레이어 컨테이너</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>썸네일</h3>
+    <p>비디오 포스터 이미지의 기본 컨테이너 (재생 버튼은 포함되지 않음)</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-thumbnail.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-축소판</td>
+          <td>축소판 컨테이너</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>동영상 정보</h3>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-video-info.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-비디오 정보</td>
+          <td>동영상 정보 컨테이너</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 비디오 - 정보 컨텐츠</td>
+          <td>내부 비디오 정보 컨테이너</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 비디오 - 정보 이름</td>
+          <td>비디오 이름 컨테이너</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 비디오 - 정보 - 이름 - 내용</td>
+          <td>동영상 이름</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 비디오 - 정보 - 지속 시간</td>
+          <td>비디오 지속 시간</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 비디오 - 정보 - 설명</td>
+          <td>동영상 설명</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-비디오 - 정보 - 관련 링크</td>
+          <td>동영상 관련 링크</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 비디오 - 정보 다운로드</td>
+          <td>동영상 다운로드 링크</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>비디오 썸네일</h3>
+    <p>비디오 정보 구성 요소로 래핑된 축소판 구성 요소를 포함합니다.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-video-thumbnail.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-비디오-축소판</td>
+          <td>비디오 축소판 구성 요소</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="videocollectioncomp">비디오 컬렉션 구성 요소</h2>
+    <p>비디오 컬렉션과 관련된 구성 요소 (재생 목록 등). 이러한 클래스는 안정적이며 템플릿 버전간에 변경되어서는 안됩니다.</p>
+    <h3>커버 흐름</h3>
+    <p>비디오의 3 차원 커버 플로우 프리젠 테이션.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-coverflow.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>EE 구성 요소-커버 플로우</td>
+          <td>토피고 흐름 구성요소</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-커버 플로우 항목</td>
+          <td>표지 흐름 항목 (비디오 축소판)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>도트 스트립</h3>
+    <p>목록의 각 비디오를 나타내는 점 스트립</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-dot-strip.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-점 스트립</td>
+          <td>도트 스트립 구성요소</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-점 스트립 항목</td>
+          <td>도트 스트립 항목</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 점 - 스트립 점</td>
+          <td>스트립의 개별 점</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>포스터 회전 목마</h3>
+    <p>포스터 이미지의 회전 목마 (화살표 포함)</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-poster-carousel.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 - 구성 요소 - 포스터 - 회전 목마</td>
+          <td>포스터 회전 목마 구성 요소</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 포스터 - 회전 목마 컨테이너</td>
+          <td>행 컨테이너</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 포스터 - 회전 목마 행</td>
+          <td>포스터 행</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 포스터 - 회전 목마 셀</td>
+          <td>행 항목 (비디오 축소판)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>썸네일 스트립</h3>
+    <p>썸네일 이미지 스트립 (화살표 포함)</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-thumbnail-strip.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-썸네일 스트립</td>
+          <td>썸네일 스트립 구성요소</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 축소판 - 스트립 컨테이너</td>
+          <td>행 컨테이너</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소 - 축소판 - 스트립 행</td>
+          <td>축소판 행</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-축소판 - 스트립 셀</td>
+          <td>행 항목 (비디오 축소판)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>동영상 그리드</h3>
+    <p>썸네일 이미지 그리드</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-video-grid.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-비디오 그리드</td>
+          <td>비디오 그리드 구성 요소</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-비디오 그리드 셀</td>
+          <td>그리드 항목 (비디오 축소판)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>동영상 목록</h3>
+    <p>축소판 이미지의 세로 목록</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-video-list.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-비디오 목록</td>
+          <td>비디오 목록 구성 요소</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-비디오 목록 항목</td>
+          <td>목록 항목 (비디오 축소판)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="sharingcomponents">구성 요소 공유</h2>
+    <p>소셜 공유와 관련된 구성 요소. &nbsp; Share Button 클래스는 비교적 안정적이며 템플릿 버전간에 변경되지 않을 가능성이 큽니다. &nbsp;공유 패널 클래스는 가까운 장래에 변경 될 가능성이 높으며 불안정한 것으로 간주되어야합니다.</p>
+    <h3>공유 버튼</h3>
+    <p>공유 버튼 또는 아이콘</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-share-button.png"/></figure>
+    또는
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-share-icons.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>구성 요소-공유 버튼</td>
+          <td>단추 구성 요소 공유</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-공유 단추 단추</td>
+          <td>공유 버튼 (아이콘 아님)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>공유 패널</h3>
+    <p>소셜 공유 디스플레이가 버튼으로 설정된 경우 공유 패널</p>
+    <aside class="bcls-aside bcls-aside--information">참고: 이 수업은 향후 변경 될 수 있습니다.</aside>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-share-panel.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-공유 래퍼 패널</td>
+          <td>패널 래퍼 구성요소</td>
+        </tr>
+        <tr>
+          <td>e - 구성 요소 - 공유 - 래퍼 - 내부</td>
+          <td>패널</td>
+        </tr>
+        <tr>
+          <td>e - 구성 요소 - 공유 - 래퍼 - 닫기</td>
+          <td>닫기 버튼</td>
+        </tr>
+        <tr>
+          <td>e - 구성 요소 - 공유 - 래퍼 - 항목</td>
+          <td>항목 공유</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-공유 - 래퍼 - 항목 이름</td>
+          <td>항목 이름 공유</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="editablecomponents">편집 가능한 구성 요소</h2>
+    <p>UI의 더하기 버튼을 통해 환경에 추가 할 수있는 구성 요소. &nbsp;이러한 클래스는 안정적이며 템플릿 버전간에 변경되어서는 안됩니다. &nbsp;이러한 구성 요소의 스크린 샷은 모양이 사용자가 입력 한 내용에 크게 의존하기 때문에 제공되지 않습니다.</p>
+    <h3>광고</h3>
+    <p>광고 구성 요소</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-광고</td>
+          <td>광고 구성 요소</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>사용자 정의 HTML</h3>
+    <p>사용자 정의 HTML 구성 요소</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-HTML</td>
+          <td>사용자 정의 HTML 구성 요소</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>이미지</h3>
+    <p>이미지 구성 요소</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-이미지</td>
+          <td>이미지 구성 요소</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-이미지 - 이미지</td>
+          <td>내부 이미지</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>텍스트</h3>
+    <p>텍스트 구성 요소</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-텍스트</td>
+          <td>텍스트 구성 요소</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Twitter</h3>
+    <p>트위터 구성 요소</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-트위터</td>
+          <td>트위터 구성 요소</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="globalclasses">글로벌 클래스</h2>
+    <p>이들은 경험의 글로벌 클래스입니다. &nbsp;이러한 클래스는 안정적이며 템플릿 버전간에 변경되어서는 안됩니다.</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>클래스</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>전자 구성 요소-응용 프로그램</td>
+          <td>가장 바깥쪽 경험 요소</td>
+        </tr>
+        <tr>
+          <td>요소-구성 요소-보기</td>
+          <td>경험 보기 (페이지 내, 라이트박스)</td>
+        </tr>
+        <tr>
+          <td>전자 구성 요소-컨테이너</td>
+          <td>플러스 버튼 구성 요소 컨테이너</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">페이지 내용</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<footer class="bcls-footer" role="contentinfo">  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>브라이트코브 지원</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">시스템 상태</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">문서화</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>교육</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
