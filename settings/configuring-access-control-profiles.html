@@ -1,849 +1,146 @@
-﻿<!doctype html>
-<html lang="ko">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  
-  <title>액세스 제어 프로필 구성</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><span class="product-logo" style="font-family:'Balto Web','Public Sans';font-size:2em;font-weight:bold;">브라이트코브 갤러리<sup>™</sup></span></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-      <option value="">기타 브라이트코브 문서</option>
-      
-        
-          <option value="https://support.brightcove.com">설명서 홈</option>
-        
-      
-        
-          <option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
-        
-      
-        
-          <option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
-        
-      
-        
-          <option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
-        
-      
-        
-          <option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
-        
-      
-        
-          <option value="https://live.support.brightcove.com">Brightcove Live</option>
-        
-      
-        
-          <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-        
-      
-        
-          <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-        
-      
-        
-          <option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
-        
-      
-        
-          <option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
-        
-      
-        
-          <option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
-        
-      
-        
-          <option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
-        
-      
-        
-          <option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
-        
-      
-        
-          <option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
-        
-      
-        
-          <option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
-        
-      
-        
-          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-        
-      
-    </select>
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">홈</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/settings/">갤러리 설정</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">액세스 제어 프로필 구성</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-      <div class="col-sm-3 left-side-bar">
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">홈</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/get-started/index.html">시작하기 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/get-started/step-step-creating-and-publishing-portal-experience.html">포털 환경 만들기</a></li>
-                  
-                
-                  
-                    <li><a href="/get-started/step-step-creating-and-publishing-page-experience.html">페이지 내 환경 만들기</a></li>
-                  
-                
-                  
-                    <li><a href="/get-started/creating-and-managing-gallery-experiences.html">경험 생성 및 관리</a></li>
-                  
-                
-                  
-                    <li><a href="/training/gallery-training-videos.html">갤러리 교육 비디오</a></li>
-                  
-                
-                  
-                    <li><a href="/get-started/getting-started-brightcove-gallery.html">브라이트코브 갤러리 시작하기</a></li>
-                  
-                
-                  
-                    <li><a href="/get-started/overview-gallery-experiences.html">갤러리 경험 개요</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-introduction-gallery.html">교육: 갤러리 소개</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-building-portal-experiences-using-gallery.html">교육: 포털 경험 구축</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-building-page-experiences-using-gallery.html">교육: 페이지 내 경험 구축</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/experiences/index.html">체험<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/experiences/portal/index.html">포털<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/experiences/portal/adding-video-cloud-videos-portal-experience.html">비디오 클라우드 비디오 추가</a></li>
-                        
-                        <li><a href="/experiences/portal/adding-videos-portal-experience.html">비디오 추가</a></li>
-                        
-                        <li><a href="/experiences/portal/adding-youtube-videos-portal-experience.html">유튜브 동영상 추가</a></li>
-                        
-                        <li><a href="/experiences/portal/assigning-custom-domain-portal-experience.html">사용자 지정 도메인 할당</a></li>
-                        
-                        <li><a href="/experiences/portal/changing-player-layout-portal-experience.html">플레이어 레이아웃 변경하기</a></li>
-                        
-                        <li><a href="/experiences/portal/configuring-calls-action-portal-experience.html">영업 활용 방안 구성</a></li>
-                        
-                        <li><a href="/experiences/portal/configuring-search-engine-optimization-settings-portal-experience.html">SEO 설정 구성</a></li>
-                        
-                        <li><a href="/experiences/portal/configuring-details-portal-experience.html">경험에 대한 세부 정보 구성</a></li>
-                        
-                        <li><a href="/experiences/portal/configuring-third-party-tracking-portal-experience.html">타사 추적 구성</a></li>
-                        
-                        <li><a href="/experiences/portal/controlling-access-portal-experience.html">액세스 제어</a></li>
-                        
-                        <li><a href="/experiences/portal/overview-creating-editing-and-publishing-portal-experiences.html">포털 환경 만들기, 편집 및 게시</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-appearance-and-behavior-portal-experience.html">모양 및 동작 사용자 정의</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-catalogue-template-settings.html">카탈로그 템플릿 설정 사용자 정의</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-chronicle-template-settings.html">크로니클 템플릿 설정 사용자 정의</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-content-portal-experience-pages.html">포털 페이지의 콘텐츠 사용자 지정</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-marquee-template-settings.html">선택 윤곽 템플릿 설정 사용자 정의</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-player-and-lead-form-settings-portal-experience.html">플레이어 및 리드 양식 설정 사용자 지정</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-site-configuration-portal-experience.html">사이트 구성 사용자 정의</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-site-features-portal-experience.html">사이트 기능 사용자 정의</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-social-settings-portal-experience.html">소셜 설정 사용자 정의</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-style-portal-experience.html">스타일 사용자 정의</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-video-and-playback-settings-portal-experience.html">비디오 및 재생 설정 사용자 정의</a></li>
-                        
-                        <li><a href="/experiences/portal/customizing-video-settings-portal-experience.html">비디오 설정 사용자 정의</a></li>
-                        
-                        <li><a href="/experiences/portal/downloading-videos-portal-experience.html">비디오 다운로드</a></li>
-                        
-                        <li><a href="/experiences/portal/exporting-gallery-lead-data.html">갤러리 잠재 고객 데이터 익스포트</a></li>
-                        
-                        <li><a href="/experiences/portal/indexing-gallery-portal-experience.html">포털 환경 인덱싱</a></li>
-                        
-                        <li><a href="/experiences/portal/overview-gallery-portal-templates.html">갤러리 포털 템플릿 개요</a></li>
-                        
-                        <li><a href="/experiences/portal/previewing-and-publishing-portal-experience.html">미리 보기 및 게시</a></li>
-                        
-                        <li><a href="/experiences/portal/updating-gallery-templates.html">갤러리 템플릿 업데이트</a></li>
-                        
-                        <li><a href="/experiences/portal/using-lead-form-portal-experience.html">가망 고객 화면 사용</a></li>
-                        
-                        <li><a href="/experiences/portal/using-custom-fonts-portal-experience.html">사용자 정의 글꼴 사용</a></li>
-                        
-                        <li><a href="/experiences/portal/using-site-editor-customize-portal-experience.html">사이트 편집기를 사용하여 환경 사용자 지정</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/experiences/inpage/index.html">페이지 내<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/experiences/inpage/adding-components-page-experience.html">구성 요소 추가</a></li>
-                        
-                        <li><a href="/experiences/inpage/adding-interactions-page-experience.html">상호 작용 추가</a></li>
-                        
-                        <li><a href="/experiences/inpage/adding-videos-page-experience.html">비디오 추가</a></li>
-                        
-                        <li><a href="/experiences/inpage/configuring-companion-components-page-experience.html">컴패니언 컴포넌트 구성</a></li>
-                        
-                        <li><a href="/experiences/inpage/configuring-details-page-experience.html">경험에 대한 세부 정보 구성</a></li>
-                        
-                        <li><a href="/experiences/inpage/configuring-settings-page-experience.html">경험에 대한 설정 구성</a></li>
-                        
-                        <li><a href="/experiences/inpage/configuring-video-downloads-page-experience.html">비디오 다운로드 구성</a></li>
-                        
-                        <li><a href="/experiences/inpage/creating-custom-themes-page-experiences.html">사용자 정의 테마 만들기</a></li>
-                        
-                        <li><a href="/experiences/inpage/customizing-page-experience.html">페이지 내 환경 사용자 지정</a></li>
-                        
-                        <li><a href="/experiences/inpage/customizing-style-page-experience.html">스타일 사용자 정의</a></li>
-                        
-                        <li><a href="/experiences/inpage/overview-gallery-page-experience-templates.html">페이지 내 환경 템플릿 개요</a></li>
-                        
-                        <li><a href="/experiences/inpage/overview-creating-editing-and-publishing-page-experiences.html">개요: 페이지 내 경험 만들기 및 게시</a></li>
-                        
-                        <li><a href="/experiences/inpage/previewing-and-publishing-page-experience.html">미리 보기 및 게시</a></li>
-                        
-                        <li><a href="/experiences/inpage/reviewing-page-experience-analytics.html">분석 검토</a></li>
-                        
-                        <li><a href="/experiences/inpage/reviewing-page-experience-calls-action-analytics.html">영업 활용 방안 분석 검토</a></li>
-                        
-                        <li><a href="/experiences/inpage/reviewing-page-experience-analytics-dashboard.html">분석 대시보드 검토</a></li>
-                        
-                        <li><a href="/experiences/inpage/reviewing-page-experience-video-analytics.html">비디오 분석 검토</a></li>
-                        
-                        <li><a href="/experiences/portal/updating-gallery-templates.html">갤러리 템플릿 업데이트</a></li>
-                        
-                        <li><a href="/experiences/inpage/using-dynamic-video-overrides-page-experience.html">동적 비디오 재정의 사용</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/experiences/live/index.html">라이브 이벤트<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/experiences/live/adding-pigeonhole-live-event-page-experience.html">라이브 인페이지에 비둘기 구멍 추가하기</a></li>
-                        
-                        <li><a href="/experiences/live/adding-pigeonhole-live-event-portal-experience.html">라이브 포털에 비둘기 추가</a></li>
-                        
-                        <li><a href="/experiences/portal/assigning-custom-domain-portal-experience.html">사용자 지정 도메인 할당</a></li>
-                        
-                        <li><a href="/experiences/portal/controlling-access-portal-experience.html">액세스 제어</a></li>
-                        
-                        <li><a href="/experiences/live/creating-live-event-page-experience.html">라이브 이벤트 페이지 환경 만들기</a></li>
-                        
-                        <li><a href="/experiences/live/creating-live-event-portal-experience.html">라이브 이벤트 포털 환경 만들기</a></li>
-                        
-                        <li><a href="/experiences/live/creating-live-event-state-portal-event-experience.html">라이브 이벤트 상태 만들기</a></li>
-                        
-                        <li><a href="/experiences/live/creating-post-event-state-portal-event-experience.html">사후 이벤트 상태 만들기</a></li>
-                        
-                        <li><a href="/experiences/live/creating-pre-event-state-portal-event-experience.html">사전 이벤트 상태 만들기</a></li>
-                        
-                        <li><a href="/experiences/live/customizing-live-event-portal-settings.html">라이브 이벤트 포털 설정 사용자 지정</a></li>
-                        
-                        <li><a href="/experiences/portal/previewing-and-publishing-portal-experience.html">미리 보기 및 게시</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/experiences/landing/index.html">랜딩 페이지<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/experiences/portal/assigning-custom-domain-portal-experience.html">사용자 지정 도메인 할당</a></li>
-                        
-                        <li><a href="/experiences/landing/creating-landing-page-experience.html">랜딩 페이지 경험 만들기</a></li>
-                        
-                        <li><a href="/experiences/portal/exporting-gallery-lead-data.html">갤러리 잠재 고객 데이터 익스포트</a></li>
-                        
-                        <li><a href="/experiences/portal/previewing-and-publishing-portal-experience.html">미리 보기 및 게시</a></li>
-                        
-                        <li><a href="/experiences/portal/using-lead-form-portal-experience.html">가망 고객 화면 사용</a></li>
-                        
-                        <li><a href="/experiences/portal/using-site-editor-customize-portal-experience.html">사이트 편집기를 사용하여 환경 사용자 지정</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">일반<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general/gallery-system-requirements.html">갤러리 시스템 요구 사항</a></li>
-                  
-                
-                  
-                    <li><a href="/general/troubleshooting-brightcove-gallery-issues.html">브라이트코브 갤러리 문제 해결</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-gallery-cookies.html">브라이트코브 갤러리 쿠키</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/settings/index.html">갤러리 설정<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/settings/configuring-gallery-settings.html">갤러리 설정 구성</a></li>
-                  
-                
-                  
-                    <li><a href="/settings/configuring-youtube-settings.html">유튜브 설정 구성</a></li>
-                  
-                
-                  
-                    <li><a href="/settings/configuring-access-control-profiles.html">액세스 제어 프로파일 구성</a></li>
-                  
-                
-                  
-                    <li><a href="/settings/configuring-custom-domains-and-ssl.html">사용자 지정 도메인 및 SSL 구성</a></li>
-                  
-                
-                  
-                    <li><a href="/settings/securing-portal-experience-auth0.html">Auth0으로 포털 환경 보안 설정</a></li>
-                  
-                
-                  
-                    <li><a href="/settings/securing-portal-experience-okta.html">Okta로 포털 경험 확보</a></li>
-                  
-                
-                  
-                    <li><a href="/settings/securing-portal-experience-ssl.html">SSL을 사용하여 포털 환경 보안</a></li>
-                  
-                
-                  
-                    <li><a href="/settings/configuring-single-sign-active-directory-federation-services.html">ADFS를 사용하여 단일 사인온 구성</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/develop/index.html">개발자 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/develop/page-experience-code-snippets.html">페이지 내 경험 코드 조각</a></li>
-                  
-                
-                  
-                    <li><a href="/develop/page-experiences-custom-css-reference.html">페이지 내 경험 사용자 지정 CSS 참조</a></li>
-                  
-                
-                  
-                    <li><a href="/develop/embedding-brightcove-page-experiences-cms.html">CMS에 페이지 내 경험 포함</a></li>
-                  
-                
-                  
-                    <li><a href="/develop/overview-page-experience-api.html">개요: 페이지 내 경험 API</a></li>
-                  
-                
-                  
-                    <li><a href="/develop/overview-page-experience-client-api.html">개요: 페이지 내 경험 클라이언트 API</a></li>
-                  
-                
-                  
-                    <li><a href="/develop/page-experience-api-error-reference.html">페이지 내 환경 API 오류 참조</a></li>
-                  
-                
-                  
-                    <li><a href="/develop/page-experience-client-api-sample.html">페이지 내 환경 클라이언트 API 샘플</a></li>
-                  
-                
-                  
-                    <li><a href="/develop/quick-start-page-experience-platform-rest-api.html">빠른 시작: 페이지 내 경험 플랫폼 (REST) API</a></li>
-                  
-                
-                  
-                    <li><a href="/develop/reference.html">페이지 내 경험 플랫폼 API 참조</a></li>
-                  
-                
-                  
-                    <li><a href="https://docs.brightcove.com/in-page-exerience-client-api/ClientApi.html">페이지 내 경험 클라이언트 API 참조</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/training/index.html">교육 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/training/gallery-training-videos.html">갤러리 교육 비디오</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-introduction-gallery.html">교육: 갤러리 소개</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-building-portal-experiences-using-gallery.html">교육: 포털 경험 구축</a></li>
-                  
-                
-                  
-                    <li><a href="/training/training-demand-building-page-experiences-using-gallery.html">교육: 페이지 내 경험 구축</a></li>
-                  
-                
-                  
-                    <li><a href="/training/brightcove-university.html">브라이트코브 대학교 교육 과정</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/release-notes/index.html">릴리즈 노트 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/release-notes/gallery-release-notes.html">갤러리 릴리스 정보</a></li>
-                  
-                
-                  
-                    <li><a href="/release-notes/gallery-template-release-notes.html">갤러리 템플릿 릴리스 정보</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">페이지 내용</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
+---
+title: 액세스 제어 프로파일 구성
+parent: Gallery Settings
+description: In this topic you will learn how to configure access control profiles for a Gallery Portal Experience. You can control access based on IP address, single sign-on (SSO), or an access code.
+---
 <article class="bcls-article">
   <h1>액세스 제어 프로필 구성</h1>
-  <summary>이 항목에서는 갤러리 포털 경험에 대한 액세스 제어 프로필을 구성하는 방법에 대해 설명합니다. IP 주소, SSO (단일 사인온) 또는 액세스 코드를 기반으로 액세스를 제어할 수 있습니다.</summary>
+  <summary>{{ page.description }}</summary>
   <section class="bcls-section">
-    <p>기본적으로 갤러리 포털 환경이 게시되면 사이트 URL이 있는 모든 사용자가 사이트에 액세스할 수 있습니다. 액세스 제어 프로필을 만들어 갤러리 포털 환경에 대한 액세스를 제한할 수 있습니다. 액세스 제어 프로파일은 갤러리 설정의 일부로 만들어지고 프로파일은 사이트에 할당됩니다. 액세스 제어 프로파일을 생성하여 다음에 따라 액세스를 제한할 수 있습니다.</p>
+    <p>기본적으로 갤러리 포털 환경이 게시되면 사이트 URL이있는 모든 사용자가 사이트에 액세스 할 수 있습니다. 갤러리 포털 경험에 대한 액세스를 제한하기 위해 액세스 제어 프로필을 만들 수 있습니다. 액세스 제어 프로필은 갤러리 설정의 일부로 생성 된 다음 프로필이 사이트에 할당됩니다. 액세스 제어 프로필을 생성하여 다음을 기반으로 액세스를 제한 할 수 있습니다.</p>
     <ul>
       <li><a href="#ip">IP 주소</a></li>
       <li><a href="#sso">싱글 사인온</a></li>
       <li><a href="#accesscode">액세스 코드</a></li>
     </ul>
-    <p>액세스 제어 프로필을 만들려면 다음과 같이 하십시오.</p>
+    <p>갤러리 포털 환경은 단일 액세스 제어 프로필로만 구성 할 수 있습니다. 각 액세스 제어 프로필에는 하나의 액세스 제한 유형 만있을 수 있습니다. 예를 들어, IP 주소와 액세스 코드를 모두 사용하는 프로필을 만들 수 없습니다. 또한 Single Sign-On을 사용하는 경우 프로필 당 하나의 ID 공급자 만 구성 할 수 있습니다.</p>
+    <p>액세스 제어 프로필을 만들려면 다음 단계를 따르십시오.</p>
     <ol class="bcls-tasklist-restart">
-      <li>갤러리 모듈을 엽니다.</li>
+      <li>갤러리 모듈을 엽니 다.</li>
       <li>갤러리 홈 페이지에서<strong>설정</strong>링크를 클릭합니다.</li>
-      <li>왼쪽 탐색에서<strong>액세스 제어 프로파일을</strong>클릭합니다. 생성된 액세스 제어 프로파일 목록이 표시됩니다.
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="프로파일 목록" src="/assets/images/settings/node16450-access-control-list.png"/></figure>
-        <aside class="bcls-aside bcls-aside--information">참고: 계정에 생성하지 않은 액세스 제어 프로필이 표시될 수 있습니다. 갤러리에서 액세스 제어 프로파일을 구현하기 전에 사이트에 대한 IP 제한, SSO 또는 액세스 코드를 구성한 경우 기능이 릴리스될 때 해당 설정이 액세스 제어 프로파일로 저장됩니다.</aside>
+      <li>왼쪽 탐색에서<strong>액세스 제어 프로파일을 클릭합니다</strong> . 생성 된 액세스 제어 프로필 목록이 표시됩니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="profiles list" src="/assets/images/settings/node16450-access-control-list.png" /></figure>
+        <aside class="bcls-aside bcls-aside--information">참고: 생성하지 않은 계정에 액세스 제어 프로필이 표시 될 수 있습니다. Gallery가 액세스 제어 프로파일을 구현하기 전에 IP 제한, SSO 또는 사이트에 대한 액세스 코드를 구성한 경우 해당 기능이 릴리스될 때 해당 설정이 액세스 제어 프로파일로 저장됩니다.</aside>
       </li>
-      <li><strong>프로파일 작성</strong>을 클릭합니다.</li>
-      <li>프로파일에<strong>이름을 지정합니다</strong> .</li>
-      <li><strong>( 선택 사항)</strong><strong>세션 시간 초과를</strong>구성하여 사용자 세션이 지속될 시간을 지정합니다. 몇 가지 참고 사항:
+      <li>프로필<strong>만들기를 클릭합니다</strong> .</li>
+      <li>프로필에<strong>이름을 지정합니다</strong> .</li>
+      <li><strong>(선택 과목)</strong>구성<strong>세션 타임 아웃</strong>사용자의 세션이 지속되는 시간을 지정합니다. 몇 가지 참고 사항:
         <ul>
           <li>이 설정은 SSO 및 액세스 코드를 사용할 때 적용됩니다.</li>
-          <li>이것은 “유휴 시간 초과”입니다. 갤러리 서버에 도달 할 때마다 (사이트에서 페이지를로드하거나 사이트에 대한 API 호출을 통해) 타이머가 재설정됩니다. 이렇게 하면 뷰어가 지정된 제한 시간보다 길게 계속 탐색할 수 있지만 시간 초과보다 오래 유휴 상태가 되면 로그아웃됩니다. 비디오를 시청하는 동안에는 갤러리 서버에 액세스하지 않으므로 시간 초과 값은 가장 긴 비디오보다 길어야 합니다.</li>
-          <li>SSO 공급자는 강제로 재인증을 수행하거나 세션 제한 시간이 제한 시간보다 작도록 설정해야 합니다. 그렇지 않은 경우 시간 초과 후 SSO 공급자로 리디렉션하고 사용자가 로그인했다는 응답을 즉시 발행합니다.</li>
+          <li>이것은 "유휴 시간 제한"입니다. 갤러리 서버에 도달 할 때마다 (사이트에 페이지를로드하거나 사이트에 대한 API 호출을 통해) 타이머가 재설정됩니다. 이를 통해 시청자는 지정된 제한 시간보다 오래 계속해서 탐색 할 수 있지만 제한 시간보다 오래 유휴 상태가되면 즉시 로그 아웃됩니다. 비디오를 시청하는 동안 갤러리 서버는 액세스되지 않으므로 시간 제한 값은 가장 긴 비디오보다 길어야합니다.</li>
+          <li>SSO 공급자는 강제 재 인증을 받거나 세션 시간 제한이 우리의 시간 제한보다 작도록 설정되어야합니다. 그렇지 않은 경우 시간 초과 후 SSO 공급자로 리디렉션되고 사용자가 로그인했다는 응답을 즉시 보냅니다.</li>
         </ul>
       </li>
-      <li>사이트를 보호하는 옵션을 선택합니다.
+      <li>사이트를 보호하기위한 옵션을 선택합니다. <strong>액세스 제어 프로파일당 하나의 옵션만 선택할</strong>수 있습니다.
         <ul>
           <li><a href="#ip">IP 주소</a></li>
           <li><a href="#sso">싱글 사인온</a></li>
           <li><a href="#accesscode">액세스 코드</a></li>
         </ul>
       </li>
-      <li><strong>저장</strong>을 클릭합니다.</li>
-      <li>필요에 따라 추가 액세스 제어 프로파일을 생성합니다.</li>
+      <li><strong>저장을 클릭합니다</strong> .</li>
+      <li>필요에 따라 추가 액세스 제어 프로필을 만듭니다.</li>
     </ol>
-    <p>액세스 제어 프로파일을 편집하거나 삭제하려면 액세스 제어 프로파일과 연결된 편집 ( <img alt="편집 아이콘" src="/assets/images/settings/node16450-edit-icon.png"/><img alt="삭제 아이콘" src="/assets/images/settings/node16450-delete-icon.png"/> ) 또는 삭제 () 단추를 클릭합니다. 액세스 제어 프로파일이 작성되면 사이트 속성의 일부로 사이트에 지정할 수 있습니다. 자세한 내용은<a href="/experiences/portal/controlling-access-portal-experience.html">포털 환경에 대한 액세스 제어를</a>참조하십시오.</p>
+    <p>액세스 제어 프로필을 수정하거나 삭제하려면 수정(<img alt="edit icon" src="/assets/images/settings/node16450-edit-icon.png" />) 또는 삭제(<img alt="delete icon" src="/assets/images/settings/node16450-delete-icon.png" />) 액세스 제어 프로필과 연결된 버튼. 액세스 제어 프로필이 생성되면 사이트 속성의 일부로 사이트에 할당 할 수 있습니다. 자세한 내용은 포털 경험에 대한 액세스<a href="/experiences/portal/controlling-access-portal-experience.html">제어를 참조하십시오</a> .</p>
   </section>
   <section class="bcls-section">
     <h2 id="ip">IP 제한 구성</h2>
-    <p>IP 제한을 사용하는 액세스 제어 프로필을 만들 때 미리 정의된 범위를 벗어난 IP 주소를 가진 뷰어는 사이트에 액세스하려고 할 때 오류를 받게 됩니다.</p>
-    <p>IP 제한을 사용하도록 액세스 제어 프로필을 구성하려면 다음과 같이 하십시오.</p>
+    <p>IP 제한을 사용하는 액세스 제어 프로필을 만들 때 미리 정의 된 범위를 벗어난 IP 주소를 가진 뷰어가 사이트에 액세스하려고하면 오류가 발생합니다.</p>
+    <p>IP 제한을 사용하도록 액세스 제어 프로필을 구성하려면 다음 단계를 수행하십시오.</p>
     <ol class="bcls-tasklist-restart">
-      <li><strong>IP 주소로 제한</strong>옵션을 선택합니다.</li>
-      <li>사이트에 액세스할 수 있는 IP 주소 범위를 입력합니다. <a href="http://tools.ietf.org/html/rfc4632">CIDR 블록 표기법도</a>지원됩니다.
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="IP 주소 구성" src="/assets/images/settings/node16450-ip-address.png"/></figure>
+      <li>IP 주소로<strong>제한</strong>옵션을 선택합니다.</li>
+      <li>사이트에 액세스 할 수있는 IP 주소 범위를 입력하십시오. <a href="http://tools.ietf.org/html/rfc4632">CIDR 블록 표기법도</a>지원됩니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="configure ip address" src="/assets/images/settings/node16450-ip-address.png" /></figure>
       </li>
-      <li><strong>저장</strong>을 클릭합니다.</li>
+      <li><strong>저장을 클릭합니다</strong> .</li>
     </ol>
   </section>
   <section class="bcls-section">
-    <h2 id="sso">단일 사인온 구성</h2>
-    <p>SSO를 사용하는 액세스 제어 프로필을 만들 때 사이트 방문자는 사이트에 액세스하기 전에 유효한 자격 증명으로 로그인하라는 메시지가 표시됩니다. 갤러리는 보안 도메인 간에 인증 및 권한 부여 데이터를 교환하기 위한 보안 어설션 마크업 언어 2.0 (SAML 2.0) 표준을 지원합니다.</p>
-    <p>갤러리는 다음을 포함하여 대부분의 주요 자격 증명 공급자를 지원합니다.</p>
+    <h2 id="sso">싱글 사인온 구성</h2>
+    <p>SSO를 사용하는 액세스 제어 프로필을 만들 때 사이트 방문자가 사이트에 액세스하기 전에 유효한 자격 증명으로 로그인하라는 메시지가 표시됩니다. Gallery는 보안 도메인간에 인증 및 권한 부여 데이터를 교환하기 위해 SAML 2.0 (Security Assertion Markup Language 2.0) 표준을 지원합니다.</p>
+    <p>Gallery는 다음을 포함한 대부분의 주요 ID 제공 업체를 지원합니다.</p>
     <ul>
       <li>핑</li>
-      <li>원로그인</li>
-      <li>애드프스 2.0</li>
-      <li>구글 G 스위트</li>
-      <li>시보레스</li>
-      <li>옥타</li>
-      <li>세일즈포스닷컴</li>
+      <li>OneLogin</li>
+      <li>ADFS 2.0 / 3.0</li>
+      <li>Google G Suite</li>
+      <li>표어</li>
+      <li>Okta</li>
+      <li>Salesforce.com</li>
     </ul>
-    <p>SAML 2.0 표준을 사용하는 다른 공급자도 작동합니다. 갤러리는<a href="https://github.com/bergie/passport-saml">여권 - saml</a>라이브러리를 사용합니다. 갤러리는 이 라이브러리에서 작동하지 않는 ID 공급자를 지원하지 않습니다.</p>
-    <aside class="bcls-aside bcls-aside--information">참고: 갤러리에 단일 사인온 인증을 위해 SAML 2.0이 필요합니다. SAML 1.1은 지원되지 않습니다.</aside>
-    <aside class="bcls-aside bcls-aside--information">참고: 우리는 싱글 바이트 문자 만 지원합니다.</aside>
-    <p>SSO 공급자에게 어설션 소비자 서비스 URL (ACS URL) 이 필요합니다. ACS URL은 액세스 제어 프로파일 테이블의 SSO 섹션에 나열됩니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="acs URL" src="/assets/images/settings/node16450-acs-url.png"/></figure>
-    <p>ACS URL은 기본적으로 으로 설정됩니다<code translate="No">https://auth.bcvp0rtal.com/login/callback</code> . 고유한 URL을 제공하여 ACS URL을 재정의할 수도 있습니다. 이 두 옵션 모두 엄격한 SSO 공급자를 구성하는 데 사용할 수 있습니다. 기존 사이트의 경우<code translate="No">http(s)://&lt;site-root-url&gt;/login/callback</code>은 계속 작동하지만 브라이트코브는 게시자가 사용할 것을 권장합니다<code translate="No">https://auth.bcvp0rtal.com/login/callback</code> . 이 끝점은 도메인의 경로를 사용하는 사이트에 대해 SAML 데이터를 올바른 사이트로 전달하는 작업을 처리합니다.</p>
-    <aside class="bcls-aside bcls-aside--information">참고: ID 시작 SSO 워크플로를 사용하는 경우 SSO 소프트웨어에 지정된 ACS URL은 해당 액세스 제어 프로파일로 구성된 갤러리 사이트를 가리켜야 합니다. 이 경우<code translate="No">https://auth.bcvp0rtal.com/login/callback</code> URL을 사용해서는 안됩니다.</aside>
-    <p>SSO를 사용 하도록 액세스 제어 프로필을 구성 하려면 다음과이 같이 하십시오.</p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="SSO 구성" src="/assets/images/settings/node16450-sso.png"/></figure>
+    <p>SAML 2.0 표준을 사용하는 다른 공급자도 작동합니다. 갤러리는<a href="https://github.com/bergie/passport-saml">여권 saml</a>도서관을 사용합니다. 갤러리는이 라이브러리에서 작동하지 않는 ID 공급자를 지원하지 않습니다.</p>
+    <aside class="bcls-aside bcls-aside--information">참고: 갤러리에는 싱글 사인온 인증을 위해 SAML 2.0이 필요합니다. SAML 1.1은 지원되지 않습니다.</aside> <aside class="bcls-aside bcls-aside--information">참고: 싱글 바이트 문자만 지원합니다.</aside> <aside class="bcls-aside bcls-aside--information">참고: 갤러리는 IDP(ID 공급자 시작) SAML 흐름만 지원합니다. 서비스 제공자가 시작한 흐름은 지원되지 않습니다.</aside>
+    <p>SSO 제공 업체에는 Assertion Consumer Service URL (ACS URL)이 필요합니다. ACS URL은 액세스 제어 프로필 표의 SSO 섹션에 나열됩니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="acs url" src="/assets/images/settings/node16450-acs-url.png" /></figure>
+    <p>ACS URL의 기본값은<code translate="No">https://auth.bcvp0rtal.com/login/callback</code>입니다. 자체 URL을 제공하여 ACS URL을 재정의 할 수도 있습니다. 이 두 옵션을 모두 더 엄격한 SSO 공급자를 구성하는 데 사용할 수 있습니다. 기존 사이트의 경우<code translate="No">http(s)://&lt;site-root-url&gt;/login/callback</code>는 계속 작동하지만 Brightcove는 게시자가 사용할 것을 권장합니다<code translate="No">https://auth.bcvp0rtal.com/login/callback</code> . 이 끝점은 도메인에서 경로를 사용하는 모든 사이트의 올바른 사이트로 SAML 데이터를 전달합니다.</p>
+    <aside class="bcls-aside bcls-aside--information">참고: IDP 시작 SSO 워크 플로를 사용하는 경우 SSO 소프트웨어에 지정된 ACS URL은 해당 액세스 제어 프로필로 구성된 갤러리 사이트를 가리켜 야합니다. 이 경우<code translate="No">https://auth.bcvp0rtal.com/login/callback</code> URL을 사용해서는 안 됩니다.</aside>
+    <p>SSO를 사용하도록 액세스 제어 프로필을 구성하려면 다음 단계를 수행하십시오.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="configure sso" src="/assets/images/settings/node16450-sso.png" /></figure>
     <ol class="bcls-tasklist-restart">
-      <li><strong>SSO </strong>옵션을 선택합니다.</li>
-      <li>SAML 2.0 메타데이터의 내보내기 파일이 있는 경우<strong>파일 선택을</strong>클릭하여 메타데이터 파일을 찾아 선택합니다. 이렇게 하면<strong>SAML 2.0 끝점</strong>및<strong>X.509 인증서</strong>필드가 미리 채워집니다.</li>
-      <li><strong>SAML 2.0 끝점 (HTTP)</strong>에 대한 값을 입력합니다. 이 값은 SAML 공급자에서 사용할 수 있어야 합니다.</li>
-      <li><strong> X.509 인증서</strong>값을 입력합니다. 이 값은 SAML 공급자에서 사용할 수 있어야 합니다.</li>
-      <li>(선택 사항) <strong>SAML 발급자/엔티티 ID 재정의를</strong>입력합니다. SAML 발급자를 선택적으로 재정의하려면 여기에 값을 입력합니다.</li>
-      <li>(선택 사항) <strong> ACS URL 재정의를</strong>입력합니다. 필요에 따라 ACS URL을 재정의하려면 여기에 값을 입력합니다.</li>
-      <li>(선택 사항) <strong>SAML 인증 컨텍스트 재지정을</strong>입력합니다. SAML AuthnContext를 선택적으로 재정의하려면 여기에 값을 입력합니다.</li>
-      <li>(선택 사항) 외부 JavaScript에 전달할 SAML 속성을 입력합니다.</li>
-      <li>(선택 사항) <strong>모든 속성 노출을</strong>선택하여 외부 JavaScript에서 사용할 SAML 속성을 모두 노출합니다.</li>
-      <li><strong>저장</strong>을 클릭합니다.</li>
+      <li><strong>SSO</strong>옵션을 선택합니다.</li>
+      <li>SAML 2.0 메타데이터의 내보내기 파일이 있는 경우 파일<strong></strong>선택을 클릭하여 메타데이터 파일을 찾아서 선택합니다. 이렇게 하면<strong> SAML 2.0 엔드포인트</strong>및<strong> X.509 인증서</strong>필드가 미리 채워집니다.</li>
+      <li><strong>SAML 2.0 엔드포인트 (HTTP) 에 대한 값을 입력합니다</strong> . 이 값은 SAML 제공 업체에서 제공해야합니다.</li>
+      <li><strong>X.509 인증서 값을 입력합니다</strong> . 이 값은 SAML 제공 업체에서 제공해야합니다.</li>
+      <li>(선택 사항) <strong> SAML 발급자/엔티티 ID 재정의를 입력합니다</strong> . 여기에 값을 입력하여 SAML 발급자를 선택적으로 재정의합니다.</li>
+      <li>(선택 사항) <strong> ACS URL 재정의를 입력합니다</strong> . 선택적으로 ACS URL을 재정의하려면 여기에 값을 입력합니다.</li>
+      <li>(선택 사항) <strong> SAML 인증컨텍스트 재정의를 입력합니다</strong> . 여기에 값을 입력하여 SAML AuthnContext를 선택적으로 재정의합니다.</li>
+      <li>(선택 사항) <strong>기본 AuthnContext를 비활성화하도록 선택합니다</strong> . 기본적으로 SSO 프로필의 경우 갤러리는 PasswordProtectedTransport를 SAML 인증 컨텍스트로 보냅니다. 때때로 이것은 ID 공급자가 지원하지 않습니다. 이 옵션을 선택하면 갤러리에서 인증 컨텍스트 요청을 보내지 않습니다.</li>
+      <li>(선택 사항) 외부 자바 스크립트에 전달하려는 SAML 속성을 입력합니다.</li>
+      <li>(선택사항) 확인<strong>모든 속성 노출</strong>외부 JavaScript에서 사용할 모든 SAML 속성을 노출합니다.</li>
+      <li><strong>저장을 클릭합니다</strong> .</li>
     </ol>
   </section>
   <section class="bcls-section">
     <h2 id="accesscode">액세스 코드 구성</h2>
-    <p>사이트에 액세스 코드가 적용되면 사이트 URL에 액세스할 때 뷰어에게 올바른 액세스 코드를 제공하라는 메시지가 표시됩니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="액세스 코드 프롬프트" src="/assets/images/settings/node16450-access-code-prompt.png"/></figure>
-    <p>잘못된 액세스 코드를 입력하면 뷰어에 오류가 표시됩니다. 액세스 코드는 건설 중일 때 사이트에 대한 액세스를 제한하는 좋은 방법입니다. 액세스 코드는 사이트 보안 또는 인증을 제공하지 않습니다.</p>
-    <p>액세스 코드를 사용하도록 액세스 제어 프로필을 구성하려면 다음과 같이 하십시오.</p>
+    <p>사이트에 액세스 코드가 적용된 경우 사이트 URL에 액세스 할 때 시청자에게 올바른 액세스 코드를 제공하라는 메시지가 표시됩니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="access code prompt" src="/assets/images/settings/node16450-access-code-prompt.png" /></figure>
+    <p>잘못된 액세스 코드를 입력하면 뷰어에 오류가 발생합니다. 액세스 코드는 건설중인 사이트에 대한 액세스를 제한하는 좋은 방법입니다. 액세스 코드는 사이트 보안 또는 인증을 제공하지 않습니다.</p>
+    <p>액세스 코드를 사용하도록 액세스 제어 프로필을 구성하려면 다음 단계를 따르십시오.</p>
     <ol class="bcls-tasklist-restart">
-      <li><strong>액세스 코드 필요</strong>옵션을 선택합니다.</li>
-      <li>사이트에 대한<strong>액세스 코드를</strong>입력합니다.</li>
-      <li><strong>액세스 코드 레이블을</strong>입력합니다. 사용자가<strong>액세스 코드를 입력하는 위치 위에 액세스 코드 레이블이</strong>나타납니다.
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="액세스 코드 구성" src="/assets/images/settings/node16450-access-code1.png"/></figure>
+      <li>액세스 코드<strong>필요</strong>옵션을 선택합니다.</li>
+      <li>들어가다<strong>액세스 코드</strong>사이트를 위해.</li>
+      <li><strong>액세스 코드 레이블을 입력합니다</strong> . 사용자가<strong>액세스 코드를 입력할 위치 위에 액세스 코드 레이블이</strong>나타납니다.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="configure access code" src="/assets/images/settings/node16450-access-code1.png" /></figure>
       </li>
-      <li>(선택 사항) <a href="#style">액세스 제어 페이지의 스타일을 지정합니다</a> .</li>
-      <li><strong>저장</strong>을 클릭합니다.</li>
+      <li>(선택 사항) 액세스 제어 페이지의<a href="#style">스타일을</a>지정합니다.</li>
+      <li><strong>저장을 클릭합니다</strong> .</li>
     </ol>
   </section>
   <section class="bcls-section">
     <h2 id="style">액세스 제어 페이지 스타일 지정</h2>
-    <p>액세스 제어 페이지의 스타일을 전체 사이트의 모양과 좀 더 일치하도록 지정할 수 있습니다. 갤러리는 세 가지 스타일 옵션을 제공합니다.</p>
+    <p>액세스 제어 페이지의 스타일을 전체 사이트의 모양과 더 가깝게 맞출 수 있습니다. 갤러리는 세 가지 스타일 옵션을 제공합니다.</p>
     <ul>
-      <li><a href="#defaultstyle">기본값</a></li>
-      <li><a href="#imageborder">이미지 테두리</a></li>
-      <li><a href="#custom">사용자 정의</a></li>
+      <li><a href="#defaultstyle">기본</a></li>
+      <li><a href="#imageborder">이미지 및 테두리</a></li>
+      <li><a href="#custom">커스텀</a></li>
     </ul>
-    <h3 id="defaultstyle">기본 스타일 지정</h3>
-    <p>기본 스타일 지정 옵션을 사용하면 갤러리 로고, 액세스 코드 레이블 및 액세스 코드 필드가 항상 표시됩니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="액세스 코드 프롬프트" src="/assets/images/settings/node16450-access-code-prompt.png"/></figure>
-    <h3 id="imageborder">이미지 및 테두리 스타일</h3>
-    <p>이미지 및 테두리 옵션을 사용하면 액세스 제어 페이지에 대한 몇 가지 기본 사용자 지정을 할 수 있습니다. 예를 아래에서 볼 수 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="이미지 테두리 예" src="/assets/images/settings/node16450-image-border-example.png"/></figure>
-    <p>이미지 및 테두리 스타일을 사용자 지정하려면 다음과 같이 하십시오.</p>
+    <h3 id="defaultstyle">기본 스타일</h3>
+    <p>기본 스타일 옵션을 사용하면 갤러리 로고, 액세스 코드 레이블 및 액세스 코드 필드가 항상 표시됩니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="access code prompt" src="/assets/images/settings/node16450-access-code-prompt.png" /></figure>
+    <h3 id="imageborder">이미지 및 테두리 스타일링</h3>
+    <p>이미지 및 테두리 옵션은 액세스 제어 페이지에 대한 몇 가지 기본 사용자 지정을 허용합니다. 예를 아래에서 볼 수 있습니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="image border example" src="/assets/images/settings/node16450-image-border-example.png" /></figure>
+    <p>이미지 및 테두리 스타일을 사용자 지정하려면 다음 단계를 따르십시오.</p>
     <ol class="bcls-tasklist-restart">
-      <li><strong>이미지 및 테두리를</strong>선택합니다.</li>
-      <li>액세스 제어 페이지에 표시할 이미지에 대한 링크를 드래그 앤 드롭, 찾아보기 또는 추가합니다.</li>
-      <li><strong>클릭스루 URL을</strong>입력합니다. <strong>클릭스루 URL은</strong>이미지를 클릭 가능한 링크로 만듭니다.</li>
-      <li>색상 선택기를 클릭하여<strong>머리글 테두리 색상을</strong>선택합니다.
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="이미지 경계 특성" src="/assets/images/settings/node16450-image-border-props.png"/></figure>
+      <li><strong>이미지 및 테두리를 선택합니다</strong> .</li>
+      <li>액세스 제어 페이지에 표시 할 이미지에 대한 링크를 끌어서 놓거나 찾아 보거나 추가합니다.</li>
+      <li><strong>클릭스루 URL을 입력합니다</strong> . <strong>클릭스루</strong> URL은 이미지를 클릭 가능한 링크로 만듭니다.</li>
+      <li>색상 선택기를 클릭하여<strong>머리글 테두리 색상을 선택합니다</strong> .
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="image border properties" src="/assets/images/settings/node16450-image-border-props.png" /></figure>
       </li>
-      <li><strong>저장</strong>을 클릭합니다.</li>
+      <li><strong>저장을 클릭합니다</strong> .</li>
     </ol>
-    <h3 id="custom">사용자 정의 스타일</h3>
+    <h3 id="custom">커스텀 스타일링</h3>
     <p><strong>사용자 지정</strong>스타일 옵션을 사용하면 액세스 제어 페이지에 대한 고급 사용자 지정을 수행할 수 있습니다. 예를 아래에서 볼 수 있습니다.</p>
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="사용자 정의 예" src="/assets/images/settings/node16450-custom-example.png"/></figure>
-    <p><strong>사용자 지정</strong>옵션을 사용 하려면 다음과이 같이 하십시오.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="custom example" src="/assets/images/settings/node16450-custom-example.png" /></figure>
+    <p><strong>사용자 지정</strong>옵션을 사용하려면 다음 단계를 수행하십시오.</p>
     <ol class="bcls-tasklist-restart">
-      <li><strong>사용자 지정을</strong>선택합니다.</li>
-      <li>머리글과 바닥글에 사용자 정의 HTML을 입력합니다.
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="사용자 정의 속성" src="/assets/images/settings/node16450-custom-props.png"/></figure>
+      <li><strong>사용자 지정을 선택합니다</strong> .</li>
+      <li>머리글 및 바닥 글에 사용자 정의 HTML을 입력하십시오.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="custom properties" src="/assets/images/settings/node16450-custom-props.png" /></figure>
       </li>
-      <li><strong>저장을</strong>클릭합니다.</li>
+      <li><strong>저장을 클릭합니다.</strong></li>
     </ol>
   </section>
 </article>
-
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">페이지 내용</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>브라이트코브 지원</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">시스템 상태</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">문서화</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>교육</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-</div>
-</div>
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>

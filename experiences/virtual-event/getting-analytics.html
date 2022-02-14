@@ -1,0 +1,142 @@
+
+---
+title: 가상 이벤트 뷰어 데이터 설명 내보내기: 이 주제에서는 Analytics API를 사용하여 가상 이벤트에 대한 가상 이벤트 뷰어 데이터를 내보내는 방법에 대해 설명합니다.
+parent: Virtual Event 
+grandparent: Experiences
+description: In this topic you will learn how to export virtual event viewer data.
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">소개</h2>
+		<p>특정 계정에 대한 계정, 뷰어 및 비디오 분석 외에도 장치 및 위치별로 집계 된 가상 이벤트에 대한보고 이벤트를 볼 수 있습니다. 이 정보는 시청자 참여를 극대화하기 위해 예정된 가상 이벤트를 더 잘 구성하는 데 도움이 될 수 있습니다.</p>
+		<p>이 데이터는 Analytics API를 사용하여 다운로드 할 수 있으며 JSON, CSV 또는 XLXS 형식으로 반환 할 수 있습니다. 다음 섹션에서는 Analytics API에 대한 간략한 소개를 제공합니다. 사용 방법을 이미 알고있는 경우 가상 이벤트에 대한 분석 데이터 가져 오기에 대한 정보를 보려면 다음 섹션으로 건너 뛸 수 있습니다.</p>
+  </section>
+	<section class="bcls-section">
+		<h2 id="Analytics_API">Analytics API</h2>
+		<p>다른<a href="https://apis.support.brightcove.com/">플랫폼</a> API와 마찬가지로 애널리틱스 API는 비디오 클라우드 플랫폼과 프로그래밍 방식으로 상호 작용할 수 있는 RESTful API입니다. 요청에 포함 된 다양한 URL 매개 변수를 기반으로 분석 데이터를 반환합니다. 기본적으로 데이터는 JSON 형식으로 반환되지만 CSV 또는 XLXS 데이터가 스프레드 시트 앱에서 열리도록 요청할 수 있습니다.</p>
+		<aside class="bcls-aside bcls-aside--information">이 문서에서는 가상 이벤트에 대한 분석 데이터를 얻기 위해 알아야 할 사항만 다룹니다. 다른 용도에 대해서는 일반<a href="https://apis.support.brightcove.com/analytics-api/index.html">애널리틱스 API 설명서를 참조하십시오</a> .</aside>
+		<h3>신청 방법</h3>
+		<p>RESTful API에 대한 요청은 브라우저가 웹 페이지를 검색하기 위해 URL에 요청하는 것과 동일한 방식으로 URL로 이루어집니다. 그러나 API 요청을 브라우저에 간단히 붙여 넣을 수는 없습니다. 요청은 인증을 받아야만 데이터를받을 권한이 있음을 보여주기 때문입니다. 그러나이를 수행하는 데 도움이되는 많은 도구가 있습니다. 다음은 간단한 목록입니다.</p>
+		<ul>
+			<li><a href="https://apis.support.brightcove.com/general/use-insomnia-api-requests.html">잠 잘 수 없음</a> (인기있는 크로스 플랫폼 앱)</li>
+			<li><a href="https://apis.support.brightcove.com/general/use-postman-api-requests.html">우편 집배원</a> (다른 인기있는 크로스 플랫폼 앱)</li>
+			<li><a href="https://apis.support.brightcove.com/general/concepts-api-tester.html">온라인 API 테스터</a> Brightcove Learning Services에서 생성</li>
+			<li><a href="https://apis.support.brightcove.com/getting-started/concepts-testing-tools-brightcove-apis.html#shell">api-tester.sh</a> (Brightcove Learning Services에서 만든 컬 기반 쉘 스크립트)</li>
+		</ul>
+		<h3>요청 인증</h3>
+		<p>데이터를 보호하려면 Analytics API 요청에 액세스 토큰이 포함 된 Authorization 헤더가 있어야합니다.</p>
+		<pre><code class="language-http" translate="No">Authorization: bearer <span class="bcls-input">your access token</span></code></pre>
+		<p>액세스 토큰은 어떻게 얻습니까? 액세스 토큰<a href="https://apis.support.brightcove.com/oauth/guides/getting-access-tokens.html"></a>얻기에서 모든 것을 읽을 수 있지만 짧은 대답은 약간의 준비를 한 후에 위에 나열된 도구 (및 기타 많은 도구) 가 사용할 수 있다는 것입니다.</p>
+		<p>준비는 다음으로 구성됩니다. <strong>클라이언트 자격 증명</strong> , <code translate="no"> client_id</code>그리고<code translate="no"> client_secret</code> . <a href="https://studio.brightcove.com/products/videocloud/admin/oauthsettings">Studio Admin 페이지를 사용하여 이러한 정보를 얻을 수 있습니다</a> (계정의 관리자여야 하거나 관리자가 수행해야 함).</p>
+		<ol class="bcls-tasklist-restart">
+			<li>새 응용 프로그램<span class="button-blue">등록을 클릭합니다</span> .</li>
+			<li>열리는 대화 상자에서 이름으로 "Analytics"를 입력합니다.</li>
+			<li>API를 사용할 계정을 선택하십시오.</li>
+			<li>
+				아래에<strong>노출된 Brightcove API</strong> , 선택하다<strong>읽다</strong>아래에<strong>해석학</strong>그리고<strong>비디오 읽기</strong>아래에<strong> CMS</strong> :
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/experiences/virtual-event/analytics-api-permissions.png" alt="API Permissions">
+					<figcaption class="bcls-caption--image">API 권한</figcaption>
+				</figure>
+			</li>
+			<li><span class="button-blue">저장을 클릭합니다</span> .</li>
+			<li>
+				새 대화 상자에<strong>클라이언트 ID </strong><strong>클라이언트 암호가 표시됩니다</strong> . 다시 찾을 수있는 안전한 장소에 둘 다 복사하여 저장하십시오. <aside class="bcls-aside bcls-aside--warning">이 대화 상자를 닫으면 이 클라이언트 암호를 다시 검색할 방법이 없습니다. 분실하면 새 것을 만들어야 합니다.</aside>
+			</li>
+		</ol>
+		<h3>액세스 토큰</h3>
+		<p>액세스 토큰은 클라이언트 자격 증명을 사용하여 다른 Brightcove API에서 검색됩니다. 직접 수행 할 수 있지만 이전 섹션에 나열된 모든 도구는 클라이언트 자격 증명을 가져 와서 액세스 토큰을 가져 와서 Analytics API 요청과 함께 전송 된 요청 헤더에 넣습니다.</p>
+	</section>
+  <section class="bcls-section">
+    <h2 id="API_request">Analytics API 요청</h2>
+    <p>다음은 Analytics API 요청의 형식입니다.</p>
+    <pre><code class="language-http" translate="No">http://analytics.api.brightcove.com/v1/data?accounts=<span class="bcls-input">{account1_id,account2_id}</span>
+&from=<span class="bcls-highlight">{yyyy-mm-dd}</span>
+&to=<span class="bcls-highlight">{yyyy-mm-dd}</span>
+&dimensions=viewer,video,country,city,region,device_type,protocol
+&fields=video,video.name,viewer,country,region,city,device_type,time,video_view,video_percent_viewed,video_seconds_viewed
+&sort=-video_view&limit=20&format=csv</code></pre>
+		<aside class="bcls-aside bcls-aside--information">요청 URL에 줄 바꿈이 없어야 합니다. 가독성을 위해 여기에 줄 바꿈이 추가되었습니다.</aside>
+		<h3>필수 매개 변수</h3>
+		<table class="bcls-table">
+			<caption class="bcls-caption--table">필수 매개 변수</caption>
+			<thead class="bcls-table__head">
+					<tr>
+							<th>매개 변수</th>
+							<th>필수 값</th>
+							<th>선택적 값</th>
+					</tr>
+			</thead>
+			<tbody class="bcls-table__body">
+					<tr>
+							<td><code translate="no">계정</code></td>
+							<td>하나 이상의 계정 ID</td>
+							<td></td>
+					</tr>
+					<tr>
+							<td><code translate="no">치수</code></td>
+							<td>
+								<ul>
+									<li><code translate="no">뷰어</code></li>
+									<!-- <li><code translate="no">application</code></li> -->
+								</ul>
+							</td>
+							<td>
+								<ul>
+									<li><code translate="no">account</code></li>
+									<li><code translate="no">video</code></li>
+									<li><code translate="no">country</code></li>
+									<li><code translate="no">region</code></li>
+									<li><code translate="no">city</code></li>
+									<li><code translate="no">device_type</code></li>
+									<li><code translate="no">규약</code></li>
+								</ul>
+							</td>
+					</tr>
+			</tbody>
+	</table>
+	<p>날짜 범위 설정, 결과 정렬, 응답 형식 설정 등에 사용할 수 있는 몇 가지 추가 선택적 매개 변수는 매개 변수를 참조하십시오<a href="https://apis.support.brightcove.com/analytics/getting-started/analytics-api-overview-dimensions-fields-and-parameters.html#params">.</a></p>
+
+  </section>
+	<section class="bcls-section">
+		<h2 id="where_filters">어디에 필터</h2>
+		<p><code translate="no">where</code>매개 변수를 사용하여 결과를 필터링할 수 있습니다. 자세한 내용은<a href="https://apis.support.brightcove.com/analytics/getting-started/analytics-api-overview-dimensions-fields-and-parameters.html#filterValues">위치 필터를</a>참조하십시오.</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="fields">필드</h2>
+		<h3>플레이어로부터 직접 수집</h3>
+		<ul>
+			<li><code translate="no">뷰어</code> : 이벤트 뷰어(SSO ID 또는 장치 ID 또는 사용자 에이전트 및 IP 기반 고유 문자열)에서 가져온<code translate="no">사용자</code>들</li>
+			<!-- <li><code translate="no">application</code>: virtual event experience id, if null default value = <code translate="no">account_id</code></li> -->
+			<li><code translate="no">time</code> : 마지막으로 수신된 이벤트의 타임스탬프</li>
+			<li><code translate="no">video</code></li>
+			<li><code translate="no">country</code></li>
+			<li><code translate="no">region</code></li>
+			<li><code translate="no">city</code></li>
+			<li><code translate="no">device_type</code></li>
+		</ul>
+		<h3>집계 된 메트릭</h3>
+		<ul>
+			<li><code translate="no">video_view</code> : 플레이어가<code translate="no"></code> video_view를 보낸 총 횟수입니다 ( <code translate="no"></code> video_view는<strong>그렇지 않습니다.</strong>시청자가 비디오를 일시 중지했거나 다시 시작할 때 전송되거나 페이지를 새로 고치지 않고 비디오를 여러 번 시청할 때 전송)</li>
+		</ul>
+		<h3>계산 된 필드</h3>
+		<ul>
+			<li>
+				<code translate="no">비디오_초_조회수</code> :
+				<ul>
+					<li>순서에 관계없이 Collector API에서받은 최고 범위 값</li>
+					<li>20초 이상의 범위를 설명하는 이벤트는 애널리틱스 시스템에 의해 삭제되며, 플레이어가 20초 이하의 범위를 전송하도록 올바르게 계측되지 않은 경우 부정확한 값을 초래할 수 있습니다. <a href="https://apis.support.brightcove.com/data-collection/overview-data-collection-api-v2.html">개요를 참조하십시오. Data Collection API</a></li>
+				</ul>
+			</li>
+			<li><code translate="no"></code> video_%_Viewed:video_초_조회/비디오_지속 시간*100 (비디오 지속 시간이 데이터 수집기로 전송되지 않은 경우 이 값이 누락되거나 부정확합니다)</li>
+			<li><code translate="no">비디오_엔진_xx</code> : xx 비디오_백분율_조회수의 총 조회 수 (xx = 1, 25, 50, 75 또는 100)</li>
+		</ul>
+		<details>
+			<summary>샘플 API 응답 (JSON)</summary>
+<pre><code class="language-json" translate="no">{ 4 "item_count": 1, 5 "items": [ 6 { 7 "viewer": "test@brightcove.com", 8 "country": "GB", 9 "video_seconds_viewed": 253, 10 "city": "London", 11 "video_percent_viewed": 527.08, 12 "device_type": "other", 13 "video": "70701475639202", 14 "video_view": 46, 15 "region": "GB-ENG" 16 } 17], 18 “요약”: { 19 "video_seconds_viewed": 253, 20 "video_percent_viewed": 527.08, 21 "video_view": 46 22 } 23}</code></pre>
+		</details>
+	</section>
+</article>

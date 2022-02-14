@@ -1,0 +1,83 @@
+
+---
+title: 가상 이벤트 경험에 비디오 추가
+parent: Virtual Event 
+grandparent: Experiences
+description: In this topic you will learn how to add videos to a Virtual Event Experience.
+layout: staging
+---
+<article class="bcls-article">
+  <h1>가상 이벤트 경험에 비디오 추가</h1>
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <p>갤러리 컬렉션 편집기를 사용하여 가상 이벤트 경험에 표시 할 비디오를 선택할 수 있습니다. 다른 포털 유형의 경험과 마찬가지로 비디오는 컬렉션으로 구성됩니다.</p>
+    <p>가상 이벤트 경험에 비디오를 추가하려면<strong>비디오</strong>왼쪽 탐색에서</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/experiences/virtual-event/site-editor-videos-menu.png" /></figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="layout">영상 수집 조직</h2>
+    <p>컬렉션의 순서는 가상 이벤트 홈페이지에 컬렉션이 표시되는 방식을 제어합니다.</p>
+    <aside class="bcls-aside bcls-aside--information">참고: 컬렉션을 만들고 컬렉션에 비디오를 추가하는 방법에 대한 자세한 내용은 포털 경험에 비디오<a href="/experiences/portal/adding-videos-portal-experience.html">추가를 참조하십시오</a> .</aside>
+    <p>가상 이벤트 템플릿에는 샘플 사이트에 지정된대로 비디오가 표시되는 네 가지 주요 영역이 있습니다.</p>
+    <ol>
+      <li><strong>추천 컬렉션</strong> - 일반적으로 이벤트 전반에 걸쳐 표시되는 라이브 또는<a href="/experiences/virtual-event/using-simulated-live-videos.html"> simulive 콘텐츠를</a>표시하는 데 사용됩니다. 최상의 경험을 위해 초기부터 최신까지의 가동 시간을 기준으로 이상적으로 주문해야합니다.</li>
+      <li><strong>기본 컬렉션</strong> -무엇이든 포함 할 수 있지만 일반적으로 추가 관심을 끌고 싶은 특정 VOD 브레이크 아웃 또는 콘텐츠를 특징으로하는 데 사용됩니다.</li>
+      <li><strong>이차 컬렉션</strong> -무엇이든 포함 할 수 있지만 일반적으로 추가 관심을 끌고 싶은 특정 VOD 브레이크 아웃 또는 콘텐츠를 특징으로하는 데 사용됩니다.</li>
+      <li><strong>트랙</strong> -일반적으로 VOD 콘텐츠에 사용</li>
+    </ol>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/experiences/virtual-event/collection-layout-example.png" /></figure>
+    <aside class="bcls-aside bcls-aside--information">참고: 추천, 기본 및 보조 컬렉션은 최대 24개의 동영상을 지원합니다.</aside> <aside class="bcls-aside bcls-aside--information">참고: 기본 / 보조 컬렉션 위에 제목을 삽입하려면 구성 파일에 정적 콘텐츠 개체를 추가합니다. 자세한 내용은 정적 콘텐츠<a href="/experiences/virtual-event/working-static-content.html">작업을 참조하십시오</a> .</aside>
+    <p>갤러리에서 컬렉션을 주문할 때 컬렉션은 다음과 같은 방식으로 주문해야합니다.</p>
+    <ul>
+      <li>컬렉션 1-추천 컬렉션</li>
+      <li>컬렉션 2 - 기본 컬렉션</li>
+      <li>컬렉션 3 - 보조 컬렉션</li>
+      <li>컬렉션 4-트랙</li>
+    </ul>
+    <p>위의 예에서 컬렉션은 다음과 같이 생성됩니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/experiences/virtual-event/collection-order-example.png" /></figure>
+    <p>트랙을 구성하려면 몇 가지 추가 단계가 필요합니다. 트랙은 아래의 이벤트 트랙<a href="#tracks">구성</a>섹션에서 다룹니다. <strong>재생 목록</strong>또는<strong>사용자 지정</strong>기반 컬렉션을 사용할 수 있지만 이벤트가<a href="/experiences/virtual-event/using-role-based-access-control.html">역할 기반 액세스 제어를</a>사용하여 특정 역할의 사용자가일부 콘텐츠가 표시되면 재생 목록은 역할 기반 액세스 제어 필터링을 지원하지 않으므로 재생목록을 사용해서는 안 됩니다.</p>
+    <p>
+      <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/experiences/virtual-event/collection-criteria-example.png" /></figure>
+    </p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="tracks">이벤트 트랙 구성</h2>
+    <p>트랙을 만들 때 아래 지침에 따라 경험에 올바르게 표시되는지 확인하십시오.</p>
+    <ul>
+      <li>컬렉션 이름이 가상 이벤트 템플릿에 표시되므로 의미있는 이름을 사용하세요.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/experiences/virtual-event/collection-tracks-ui-sample.png" /></figure>
+      </li>
+      <li>트랙 컬렉션은 중첩 된 컬렉션이되며이 컬렉션에는 동영상이 표시되지 않습니다.</li>
+      <li>트랙 컬렉션은 네 번째 컬렉션이어야합니다.</li>
+      <li>각 트랙의 트랙 컬렉션 아래에 자식 컬렉션 만들기
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/experiences/virtual-event/collection-tracks-example.png" /></figure>
+      </li>
+      <li>컬렉션을 만들 때 재생 목록을 사용하지 마십시오.</li>
+      <li>트랙 섹션의 위치는 구성 파일에 지정되며<a href="/experiences/virtual-event/positioning-content-homepage.html">변경할 수 있습니다</a>편집하여<code translate="No">breakout_collection</code>구성 파일의 개체</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="track-url">트랙 URL 구성</h2>
+    <p>컬렉션이 생성되면 헤더의 On-Demand Sessions 링크가 올바른 URL로 연결되도록 구성 파일을 업데이트해야합니다. 트랙 컬렉션 (컬렉션 4)에 사용 된 이름은 트랙 페이지에 액세스하기 위해 URL에서 사용됩니다. URL이 올바르게 설정되었는지 확인하려면 다음을 확인하십시오.</p>
+    <ol class="bcls-tasklist-restart">
+      <li>구성 파일을 검토하고<code translate="No">breakout_collection</code>객체를 찾습니다.</li>
+      <li> <code translate="No">collection</code>매개 변수에는 트랙 페이지의 URL이 포함되어 있습니다. 예를 들면 다음과 같습니다.<br/>
+        <pre><code translate="No">
+"breakout_collection": {
+    "collection": "/category/videos/tracks",
+    "insert_target": ".bc-on-demand-section",
+    "insert_mode": "after"
+},
+          </code></pre>
+      </li>
+      <li><code translate="No">collection</code> URL의 마지막 경로는 트랙 컬렉션의 이름을 반영해야 합니다 (컬렉션 4). 예를 들어 트랙 컬렉션(컬렉션 4)의 이름이 '세션'인 경우 컬렉션 매개변수는 다음과 같이 업데이트됩니다.<br/>
+        <pre><code translate="No">
+"collection": "/category/videos/sessions",      
+          </code></pre>
+      </li>
+      <li>구성을 확인하려면 헤더에서 On-Demand Sessions 링크를 클릭하십시오. 트랙 세션이 나타납니다. 트랙을 클릭하면 트랙의 비디오가 열립니다. 404 오류가 표시되면 구성 문제가있는 것입니다.</li>
+    </ol>
+    <p>&nbsp;</p>
+  </section>
+</article>
